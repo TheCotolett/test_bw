@@ -1,0 +1,94 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "LoanService",
+    "description" : "LoanService service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/loanservice" : {
+      "post" : {
+        "summary" : "postLoanService",
+        "description" : "postLoanService",
+        "operationId" : "post-loanservice",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/RestLoanRequest"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a OutputToClient to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/OutputToClient"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "OutputToClient" : {
+      "type" : "object",
+      "required" : [ "Responses" ],
+      "properties" : {
+        "Responses" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Responses",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "RestLoanRequest" : {
+      "type" : "object",
+      "required" : [ "cf", "rate", "surname", "name", "loanAmount" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        },
+        "cf" : {
+          "type" : "string"
+        },
+        "loanAmount" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "rate" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Responses" : {
+      "type" : "object",
+      "required" : [ "amount", "rate" ],
+      "properties" : {
+        "amount" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "rate" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "response" : {
+          "type" : "boolean"
+        }
+      }
+    }
+  }
+}

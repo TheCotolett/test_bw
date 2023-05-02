@@ -1,0 +1,12 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/banca.module/Service Descriptors/loanService.LoanService-LoanService.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/RestLoanRequest"
+    },
+    {
+        "jsonSchemaLocation": "/banca.module/Service Descriptors/loanService.LoanService-LoanService.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/OutputToClient"
+    }
+]}

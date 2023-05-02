@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/RestLoanRequest" xmlns:tns="http://www.example.org/RestLoanRequest" elementFormDefault="qualified">
+
+    <element name="RestLoanRequest" type="tns:RestLoanRequest"></element>
+
+    <complexType name="RestLoanRequest">
+    	<sequence>
+    		<element name="name" type="string"></element>
+    		<element name="surname" type="string"></element>
+    		<element name="cf" type="string"></element>
+    		<element name="loanAmount" type="int"></element>
+    		<element name="rate" type="int"></element>
+    	</sequence>
+    </complexType>
+</schema>

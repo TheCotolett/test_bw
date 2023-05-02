@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.example.org/schema/1682666941110" xmlns:tns="http://www.example.org/wsdl/1682666941048" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="creditBureauServiceMain" targetNamespace="http://www.example.org/wsdl/1682666941048" xmlns:xsd1="http://www.example.org/CreditHistoryRequest" xmlns:xsd2="http://www.example.org/CreditHistoryResponse">
+  <wsdl:import location="../Schemas/creditBureauServiceMainSchema.xsd" namespace="http://www.example.org/schema/1682666941110"/>
+  <wsdl:types>
+  	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  		<xsd:import
+  			namespace="http://www.example.org/CreditHistoryRequest"
+  			schemaLocation="../Schemas/CreditHistoryRequest.xsd">
+  		</xsd:import>
+  		<xsd:import
+  			namespace="http://www.example.org/CreditHistoryResponse"
+  			schemaLocation="../Schemas/CreditHistoryResponse.xsd">
+  		</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="operationRequest">
+    <wsdl:part element="xsd1:CreditHistoryRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="operationResponse">
+    <wsdl:part element="xsd2:CrediHistoryResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="creditBureauServiceMain">
+    <wsdl:operation name="operation">
+      <wsdl:input message="tns:operationRequest" name="operationInput"/>
+      <wsdl:output message="tns:operationResponse" name="operationOutput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

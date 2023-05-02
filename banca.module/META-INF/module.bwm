@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:CreditHistoryRequest="http://www.example.org/CreditHistoryRequest" xmlns:CreditHistoryResponse="http://www.example.org/CreditHistoryResponse" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:wsdl_1682666941048="http://www.example.org/wsdl/1682666941048" xmi:id="_McPNAOJ1Ee2tu51wLYSl_A" targetNamespace="http://tns.tibco.com/bw/composite/banca.module" name="banca.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_oRIkcOQvEe2ZA9AOeGV-hg" name="loanservice" promote="ComponentLoanService/loanservice">
+    <sca:interface.wsdl xmi:id="_oRIkdOQvEe2ZA9AOeGV-hg" interface="http://xmlns.example.com/20230426144113PLT#wsdl.interface(loanservice)" scaext:wsdlLocation="../Processes/loanService/LoanService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_oRIkdeQvEe2ZA9AOeGV-hg" name="RestService" path="/loanservice" docBasePath="http://localhost:7777/banca.module" docResourcePath="LoanService" basePath="/" connector="banca.module.LoanService" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/loanService.LoanService-LoanService.json">
+      <operation xmi:id="_oRIkd-QvEe2ZA9AOeGV-hg" operationName="post" nickname="post-loanservice" httpMethod="POST" notes="postLoanService" responseStyle="element" requestStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_oRw2k-QvEe2ZA9AOeGV-hg"/>
+      <advancedConfig xmi:id="_oRIkduQvEe2ZA9AOeGV-hg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_oRIkeOQvEe2ZA9AOeGV-hg" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_ciVd4OWWEe2ZuZ1G_AsnNQ" name="creditBureauServiceMain" promote="ComponentcreditBureauServiceMain/creditBureauServiceMain">
+    <sca:interface.wsdl xmi:id="_ciyJ0OWWEe2ZuZ1G_AsnNQ" interface="http://www.example.org/wsdl/1682666941048#wsdl.interface(creditBureauServiceMain)" scaext:wsdlLocation="../Service%20Descriptors/creditBureauServiceMain.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_sSJEMOXOEe2-wpmpV80ZYg" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/4a41310449f448748b0c935a8c4160c5/SOAPServiceBinding" portTypeQName="wsdl_1682666941048:creditBureauServiceMain" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/banca.module/Service%20Descriptors/creditBureauServiceMain.wsdl">
+      <bindingType xmi:id="_sSlJEOXOEe2-wpmpV80ZYg"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_COltYOXPEe2-wpmpV80ZYg" endpointURI="/app/creditBureau/" httpConnector="banca.module.LoanService"/>
+      <operationConfiguration xmi:id="_sSxWUOXOEe2-wpmpV80ZYg" operationName="operation" action="operation" actionNeeded="true">
+        <bindingType xmi:id="_sSxWUeXOEe2-wpmpV80ZYg"/>
+        <messageConfiguration xmi:id="_sSxWUuXOEe2-wpmpV80ZYg" messageQName="wsdl_1682666941048:operationRequest" wsdlLocation="platform:/resource/banca.module/Service%20Descriptors/creditBureauServiceMain.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_sSxWU-XOEe2-wpmpV80ZYg" partName="parameters" partElementName="CreditHistoryRequest:CreditHistoryRequest"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_sSxWVOXOEe2-wpmpV80ZYg" messageQName="wsdl_1682666941048:operationResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/banca.module/Service%20Descriptors/creditBureauServiceMain.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_sSxWVeXOEe2-wpmpV80ZYg" partName="parameters" partElementName="CreditHistoryResponse:CrediHistoryResponse"/>
+        </messageConfiguration>
+        <context xmi:id="_sSxWVuXOEe2-wpmpV80ZYg">
+          <inputMapping xmi:id="_sSxWV-XOEe2-wpmpV80ZYg"/>
+          <outputMapping xmi:id="_sSxWWOXOEe2-wpmpV80ZYg" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_sSxWWeXOEe2-wpmpV80ZYg" bindingName="SOAPServiceBinding"/>
+  </sca:service>
+  <sca:property xmi:id="_N5X5YOJ1Ee2tu51wLYSl_A" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_N5iRcOJ1Ee2tu51wLYSl_A" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_N5nJ8OJ1Ee2tu51wLYSl_A" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_N5nJ8eJ1Ee2tu51wLYSl_A" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_N5nJ8uJ1Ee2tu51wLYSl_A" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_N5w68OJ1Ee2tu51wLYSl_A" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_N5w68eJ1Ee2tu51wLYSl_A" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_N5w68uJ1Ee2tu51wLYSl_A" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_N56E4OJ1Ee2tu51wLYSl_A" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_NS3TAOJ1Ee2tu51wLYSl_A" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_NS3TAeJ1Ee2tu51wLYSl_A" processName="banca1.module.Banca1Main"/>
+  </sca:component>
+  <sca:component xmi:id="_-qaE8OKtEe2IMK5-ESewKQ" name="ComponentcreditBureauServiceMain" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_-qaE8eKtEe2IMK5-ESewKQ" processName="creditBureauService.creditBureauServiceMain"/>
+    <sca:service xmi:id="_ciLs4OWWEe2ZuZ1G_AsnNQ" name="creditBureauServiceMain">
+      <sca:interface.wsdl xmi:id="_ciLs4eWWEe2ZuZ1G_AsnNQ" interface="http://www.example.org/wsdl/1682666941048#wsdl.interface(creditBureauServiceMain)" scaext:wsdlLocation="../Service%20Descriptors/creditBureauServiceMain.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_oRGIMOQvEe2ZA9AOeGV-hg" name="ComponentLoanService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_oRGIMeQvEe2ZA9AOeGV-hg" processName="loanService.LoanService"/>
+    <sca:service xmi:id="_oRGIMuQvEe2ZA9AOeGV-hg" name="loanservice">
+      <sca:interface.wsdl xmi:id="_oRGIM-QvEe2ZA9AOeGV-hg" interface="http://xmlns.example.com/20230426144113PLT#wsdl.interface(loanservice)" scaext:wsdlLocation="../Processes/loanService/LoanService.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_A2RmwOT3Ee271IFfueu77A" name="Componenttest" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_A2RmweT3Ee271IFfueu77A" processName="test.test"/>
+  </sca:component>
+  <sca:component xmi:id="_X4MSoOi6Ee2S9OZH_yxstQ" name="ComponentrequestProcessHTTP" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_X4MSoei6Ee2S9OZH_yxstQ" processName="HTTP_test_request.requestProcessHTTP"/>
+  </sca:component>
+  <sca:component xmi:id="_irBkQejUEe2S9OZH_yxstQ" name="ComponentrequestProcessINVOKE" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_irBkQujUEe2S9OZH_yxstQ" processName="HTTP_test_request.requestProcessINVOKE"/>
+  </sca:component>
+  <sca:component xmi:id="_t7f9gejVEe2S9OZH_yxstQ" name="Componentsoap_INVOKE" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_t7f9gujVEe2S9OZH_yxstQ" processName="HTTP_test_request.soap_INVOKE"/>
+  </sca:component>
+  <sca:component xmi:id="_9Hi-AejiEe2S9OZH_yxstQ" name="Componentsoap_HTTP" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_9Hi-AujiEe2S9OZH_yxstQ" processName="HTTP_test_request.soap_HTTP"/>
+  </sca:component>
+</sca:composite>

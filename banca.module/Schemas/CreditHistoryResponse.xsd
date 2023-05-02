@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/CreditHistoryResponse" xmlns:tns="http://www.example.org/CreditHistoryResponse" elementFormDefault="qualified">
+
+    <element name="CrediHistoryResponse"
+    	type="tns:CreditHistoryResponse">
+    </element>
+    
+
+    <complexType name="CreditHistoryResponse">
+    	<sequence>
+    		<element name="clientName" type="string"></element>
+            <element name="clientSurname" type="string"></element>
+            <element name="loanAmount" type="int"></element>
+    		<element name="startDate" type="date"></element>
+    		<element name="endDate" type="date"></element>
+    		<element name="status" type="tns:status"></element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="status">
+    	<restriction base="string">
+    		<enumeration value="FINISHED"></enumeration>
+    		<enumeration value="IN PROGRESS REGULARLY"></enumeration>
+    		<enumeration value="NOT ACCEPTED"></enumeration>
+    		<enumeration value="IN PROGRESS IRREGULARY"></enumeration>
+    	</restriction>
+    </simpleType>
+</schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/OutputToClient" xmlns:tns="http://www.example.org/OutputToClient" elementFormDefault="qualified">
+
+    <element name="OutputToClient" type="tns:OutputToClient"></element>
+
+    <complexType name="OutputToClient">
+    	<sequence>
+    		<element name="Responses" type="tns:BankResponse" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="BankResponse">
+    	<sequence>
+    		<element name="amount" type="int" maxOccurs="1" minOccurs="1"></element>
+    		<element name="rate" type="int" maxOccurs="1" minOccurs="1"></element>
+    		<element name="response" type="boolean" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+</schema>
