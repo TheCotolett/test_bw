@@ -37,9 +37,9 @@
                 <variable>JMSReceiveMessage</variable>
             </endingVariables>
         </task>
-        <task name="Log">
+        <task name="LogBanca">
             <endingVariables>
-                <variable>Log-input</variable>
+                <variable>LogBanca-input</variable>
             </endingVariables>
         </task>
     </tibex:VariableDescriptor>
@@ -1164,7 +1164,7 @@
         <bpws:variable element="ns:ErrorReport" name="_error" sca-bpel:internal="true"/>
         <bpws:variable element="ns5:ActivityInput"
             name="LogBanca2-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns5:ActivityInput" name="Log-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns5:ActivityInput" name="LogBanca-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns13:ActivityOutput"
             name="JMSReceiveMessage" sca-bpel:internal="true"/>
     </bpws:variables>
@@ -1253,8 +1253,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension inputVariable="Log-input"
-                    name="Log"
+                <tibex:activityExtension inputVariable="LogBanca-input"
+                    name="LogBanca"
                     tibex:xpdlId="9bedf513-327b-4650-8771-9a4efbbc0094" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="JMSReceiveMessageToLog"/>
